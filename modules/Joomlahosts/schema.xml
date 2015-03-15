@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_joomlahosts</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_joomlahosts` (
+  `joomlahostsid` int(11) NOT NULL DEFAULT '0',
+  `iname` varchar(100) DEFAULT NULL,
+  `host_no` varchar(100) DEFAULT NULL,
+  `joomlahost_dbtype` varchar(50) DEFAULT NULL,
+  `j_host` varchar(100) DEFAULT NULL,
+  `j_dbname` varchar(50) DEFAULT NULL,
+  `j_dbuser` varchar(50) DEFAULT NULL,
+  `j_dbpassword` varchar(50) DEFAULT NULL,
+  `j_dbprefix` varchar(20) DEFAULT NULL,
+  `enabled` varchar(3) DEFAULT NULL,
+  `checked` tinyint(3) NOT NULL DEFAULT '0',
+  `iurl` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`joomlahostsid`),
+  CONSTRAINT `fk_1_vtiger_joomlahosts` FOREIGN KEY (`joomlahostsid`) REFERENCES `vtiger_crmentity` (`crmid`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_joomlahostscf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_joomlahostscf` (
+  `joomlahostsid` int(11) NOT NULL,
+  PRIMARY KEY (`joomlahostsid`),
+  CONSTRAINT `fk_1_vtiger_joomlahostscf` FOREIGN KEY (`joomlahostsid`) REFERENCES `vtiger_crmentity` (`crmid`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
